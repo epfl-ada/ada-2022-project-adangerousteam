@@ -2,14 +2,10 @@
 
 ## Abstract 
 
----
-
 Viral videos dominate the always-changing landscape of Youtube trends and many channels go through a brief but explosive moment of fame. While some are able to turn this sudden success into long-term engagement, others quickly sink into oblivion. What is then the winning strategy of these first lucky creators (and do they even have any)? Are there specific contents for which is easier to ride the wave of fame after the fast spike in visibility? 
 These and more questions will be answered by the study here presented. Indeed, channels in the YouNiverse dataset that have undergone a sudden increase in terms of views are identified and then split into the “keep-fame” and “lose-fame” populations. By defining and computing various metrics, employing feature engineering and logistic regression, the two populations can be compared in an observational study and their differences highlighted. 
 
 ## Research questions
-
----
 
 Through our analysis we aim to gain meaningful insights on the strategies implemented by channels that gained sudden success and managed to keep their fame. 
 
@@ -24,16 +20,14 @@ Specifically, we want to answer the following questions:
 
 ## Methods
 
----
-
 In order to carry out our analysis, we first need to identify the two populations of interest: the channels that lost the gained popularity after a peak of views and those who managed to keep it. We will then perform an observational study on these two groups. 
 
 **Step 1: Identification of the two populations.** Preprocessing and filtering of the `‘df_timeseries_en.tsv.gz’` and `‘df_channels_en.tsv.gz’` dataframes is done to create the two defined populations. Using timeseries data, different metrics are computed for this purpose, allowing identification of the channels of interest (for more information see `preprocessing_population_selection.ipynb`). Here, for each population, we show the cumulative views, views and delta_views for two representative channels obtained with this method: 
-| ![](./channellose.jpg) | 
+| ![channellose](https://user-images.githubusercontent.com/114160174/202800175-b7568d69-1e86-4fd7-b427-26d8f240c434.jpg) | 
 |:--:| 
 | Example of 'lose-fame' channel. We observe that after a sudden increase, the ‘views’ remain constant until the end of the observation period. |
 
-| ![](./channelkeep.jpg) | 
+| ![channelkeep](https://user-images.githubusercontent.com/114160174/202800178-76af65a3-6089-4226-9893-f10e7813f323.jpg) | 
 |:--:| 
 | Example of 'keep-fame' channel. For this channle, we detect loss of visualizations in the period following the rapid peak in views. |
 
@@ -49,8 +43,6 @@ In order to carry out our analysis, we first need to identify the two population
 
 ## Proposed timeline
 
----
-
 * **28/10/2022: P2 Release**
 * *Week 1:* Selection of ideas and data exploration
 * *Week 2:* Populations identification and clustering of video subcategories
@@ -65,7 +57,6 @@ In order to carry out our analysis, we first need to identify the two population
 
 ## Organization within the team
 
----
 We plan to organize the work equally between teammates and to work in pairs on every task. Specifically:
 * Teammate 1 and 2: Step 1, 3
 * Teammate 3 and 4: Step 2, 4
