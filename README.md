@@ -37,9 +37,9 @@ In order to carry out our analysis, we first need to identify the two population
 
 **Step 4: Final analysis.** Two tasks can be identified in this step. 
 
-  **4.1** Exploration of the subcategories, specifically those related to the channels that belong to the two defined populations: some of the objectives here are to understand if some subcategories are more frequent in one of the two, and if channels changed and varied the content (subcategory) of videos after success. 
+&nbsp;&nbsp;&nbsp;  **4.1** Exploration of the subcategories, specifically those related to the channels that belong to the two defined populations: some of the objectives here are to understand if some subcategories are more frequent in one of the two, and if channels changed and varied the content (subcategory) of videos after success. 
   
-  **4.2** Comparisons among the two groups of publication strategies, such as the frequency of video publishing, the length of the videos, their title characteristics, and level of engagement, with the goal of detecting significant differences (if there are any). 
+&nbsp;&nbsp;&nbsp;  **4.2** Comparisons among the two groups of publication strategies, such as the frequency of video publishing, the length of the videos, their title characteristics, and level of engagement, with the goal of detecting significant differences (if there are any). 
 
 **Step 5**: GitHub site building and datastory redaction. 
 
