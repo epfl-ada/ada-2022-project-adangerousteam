@@ -1,4 +1,4 @@
-remote_theme: pages-themes/cayman@v0.2.0
+theme: jekyll-theme-cayman
 title: ADA Template Website
 description: A template website for ADA
 show_downloads: True
