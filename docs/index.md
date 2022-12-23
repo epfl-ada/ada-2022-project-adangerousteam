@@ -4,7 +4,7 @@ layout: default
 
 # Why Youtube?
 
-Viral videos dominate the always-changing landscape of Youtube trends and many channels go through a brief but explosive moment of fame. While some are able to turn this sudden success into long-term engagement, others quickly sink into oblivion. What is then the winning strategy of these first lucky creators (and do they even have any)? Are there specific contents for which is easier to ride the wave of fame after the fast spike in visibility? These and more questions will be answered by the study here presented, based on the [**YouNiverse**](https://github.com/epfl-dlab/YouNiverses) dataset, a large collection of channel and video metadata from English-language YouTube. A first introduction to the dataset, as well as the exploratory analysis is available in [its dedicated page](dataset.html).
+Viral videos dominate the always-changing landscape of Youtube trends and many channels go through a brief but explosive moment of fame. While some are able to turn this sudden success into long-term engagement, others quickly sink into oblivion. What is then the winning strategy of these first lucky creators (and do they even have any)? Are there specific contents for which is easier to ride the wave of fame after the fast spike in visibility? These and more questions will be answered by the study here presented, based on the [**YouNiverse**](https://github.com/epfl-dlab/YouNiverse) dataset, a large collection of channel and video metadata from English-language YouTube. A first introduction to the dataset, as well as the exploratory analysis is available in [its dedicated page](dataset.html).
 
 <figure>
   <img src="assets\img\cover.jpg" style="width:100%">
@@ -16,13 +16,11 @@ Viral videos dominate the always-changing landscape of Youtube trends and many c
 [observational](./observational.html)
 [observational](./dataset.html)
 
-Youtube is the most popular video sharing platform in the world, with over 2 billion users and 500 hours of video uploaded every minute. It is also the second most popular search engine, after Google. Therefore it’s deemed as a great starting point to understand how creators can exploit sudden and exponential growth. We worked on the file `df_channels_en.tsv.gz` and the `df_timeseries_en.csv.gz`. The first contains data related to the channels, the second contains data related to time series. We have a data point for each channel and each week.
-
-From YouNiverse, we extracted channels that have undergone a sudden increase in terms of views and then split these into the **“keep-fame”** and **“lose-fame”** populations.
+Youtube is the most popular video sharing platform in the world, with over 2 billion users and 500 hours of video uploaded every minute. It is also the second most popular search engine, after Google. Therefore it’s deemed as a great starting point to understand how creators can exploit sudden and exponential growth. From YouNiverse, we extracted channels that have undergone a sudden increase in terms of views and then split these into the **“keep-fame”** and **“lose-fame”** populations.
 
 ## How did we proceed?
 
-Firstly, in order perform our analysis, important preprocessing steps had to be carried out in order to extract new variables to enrich the dataset and allow for detailed filtering. This step is described in detail in the [preprocessing](./preprocessing.html) section.
+Firstly, in order to perform our analysis, important preprocessing steps had to be carried out to extract new variables to enrich the dataset and allow for detailed filtering. This step is described in detail in the [preprocessing](./preprocessing.html) section.
 
 Moreover, through feature engineering, we defined various metrics with the goal to detect 
 channels that had undergone a sudden success and later to draw apart the two desired 

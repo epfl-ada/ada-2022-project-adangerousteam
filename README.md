@@ -28,3 +28,7 @@ In milestone 3, the notebooks are organized as follows:
 
 * As colourblindness is a quite spread condition (it affects about 1 in 10 males) most visualizations in these notebooks were made with appropriate palettes;
 * We were planning to extract subcategories by processing semantic clustering on video titles and their tags in order to implement a more detailed content analysis. This had been started in the `subcategories_preprocessing_and_clustering.ipynb` notebook uploaded for milestone P2. However, even Friday, December 23, 2022 8:21 PM, after letting the computer run for a few days, only a small fraction of the data had been processed. As our model would not have been fitted properly, we had to resign from our initial idea. Still, we would like to point out to future studies that in conditions of more time and RAM space it would be an enriching analysis to carry out.
+
+## Data story
+
+The data story is available [here](https://adangerousteam.github.io/ada-2022-project-adangerousteam/) and it is also contained in the `docs` folder.
