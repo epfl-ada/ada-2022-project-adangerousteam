@@ -2,3 +2,7 @@
 ---
 
 @import 'jekyll-theme-cayman';
+
+.fix-stroke {
+    paint-order: stroke fill;
+}
