@@ -31,7 +31,7 @@ In milestone 3, the notebooks are organized as follows:
 
 ## Data story
 
-The data story is available [here](https://adangerousteam.github.io/ada-2022-project-adangerousteam/) and it is also contained in the `docs` folder.
+The data story is available [here](https://epfl-ada.github.io/ada-2022-project-adangerousteam/) and it is also contained in the `docs` folder.
 
 ## Organization within the team
 
