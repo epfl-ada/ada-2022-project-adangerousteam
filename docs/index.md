@@ -1,5 +1,6 @@
 ---
 layout: default
+title: "From sudden to long term success: what's the secret?"
 ---
 
 # Why Youtube?
@@ -13,153 +14,128 @@ Viral videos dominate the always-changing landscape of Youtube trends and many c
   </figcaption>
 </figure>
 
-[observational](./observational.html)
-[observational](./dataset.html)
-
 Youtube is the most popular video sharing platform in the world, with over 2 billion users and 500 hours of video uploaded every minute. It is also the second most popular search engine, after Google. Therefore it’s deemed as a great starting point to understand how creators can exploit sudden and exponential growth. From YouNiverse, we extracted channels that have undergone a sudden increase in terms of views and then split these into the **“keep-fame”** and **“lose-fame”** populations.
+
+
+<figure>
+  <img src="assets\img\channel_lose.jpg" style="width:100%">
+  <figcaption align = "center">
+    <b>Relevant lose-fame channel example</b>
+  </figcaption>
+</figure>
+
+
+<figure>
+  <img src="assets\img\channel_keep.jpg" style="width:100%">
+  <figcaption align = "center">
+    <b>Relevant keep-fame channel example</b>
+  </figcaption>
+</figure>
 
 ## How did we proceed?
 
-Firstly, in order to perform our analysis, important preprocessing steps had to be carried out to extract new variables to enrich the dataset and allow for detailed filtering. This step is described in detail in the [preprocessing](./preprocessing.html) section.
+Firstly, in order to perform our analysis, important preprocessing steps had to be carried out to extract new variables to enrich the dataset with the goal of identifying a rapid growth in the channels' views and allowing for detailed filtering. This step is described in detail in the [preprocessing](./preprocessing.html) section.
 
-Moreover, through feature engineering, we defined various metrics with the goal to detect 
-channels that had undergone a sudden success and later to draw apart the two desired 
-populations. The antecedent preprocessing revealed itself as fundamental, since it allowed us to 
-assign to each channel the maximum growth rate and the associated timepoint at which the 
-views peaked. The defined metrics are described in detail in the [metrics](./metrics.html) section.
+Afterwards, through feature engineering, we defined various metrics to better quantify the growth of channels that had undergone a sudden success and, later, to draw apart the two desired populations. The antecedent preprocessing revealed itself as fundamental, since it allowed us to assign to each channel the maximum growth rate and the associated timepoint at which the views peaked. The defined metrics are described in detail in the [metrics](./metrics.html) section.
 
-We later defined thresholds to only select those channels that had a very steep sudden growth 
-and then discarded all the ones that before growing rapidly displayed an abrupt decrease in 
-views. 
-Finally, we were able to distinguish the two populations by thresholding upon the growth value 
-and discarding all the channels that had lost or gained fame again before the end of the 
-observation period. 
-At this point, having removed all the examples that could have biased our experiment, we were 
-now able to perform propensity score matching. We picked out all the column variables to be used as regressors:
-* "subscribers_cc";
-*  "videos_cc";
-*  "subscriber_rank_sb";
-*  "weights";
-*   "growth_rate";
-*    "variability"; 
-* "growth_steepness".
+We later selected those channels that had a very steep sudden growth and then discarded all the ones that, before growing rapidly, displayed an abrupt decrease in views (as their growth is affected by their previous popularity).
 
-We later standardized them. Moreover, we converted the 
-categorical variables into dummy indicators. We computed the propensity scores and added 
-them to the identified keep_fame and lose_fame populations. This led to 75 matched pairs to be 
-used for the ensuing analysis.
+<figure>
+  <img src="assets\img\channel_sudden_decrease.png" style="width:100%">
+  <figcaption align = "center">
+    <b>Example of lost-and-regained views channel</b>
+  </figcaption>
+</figure>
 
-It must be highlighted that for the final analysis we selected various features and then performed 
+Moreover, we discarded all the channels that lost views after the peak but regained them before the end of the observation period, as they could've been wrongly assigned to the **keep-fame** population.
 
- creators stay consistent with their content or try to adapt it to the interests of their 
-newly-found large audience? To answer this question, we analysed the features of each channel 
-before and after going viral. To avoid bias, we only selected the channels that had videos before 
-and after their peak. We therefore ended up with 65 and 63 channels for each population
+<figure>
+  <img src="assets\img\channel_drop.png" style="width:100%">
+  <figcaption align = "center">
+    <b>Example of gained, lost, and regained views channel</b>
+  </figcaption>
+</figure>
+
+At this point, having clearly identified our two populations, we were able to perform propensity score matching, as extensively explained in [its dedicated section](propensity_score_matching.html). To eliminate the observed confounding factors, we picked the following column variables to be used as regressors in the propensity score matching:
+
+* `subscribers_cc`
+* `videos_cc`
+* `subscriber_rank_sb`
+* `weights`
+* `growth_rate`
+* `variability`
+* `growth_steepness`
+
+We standardized them, converted the categorical variables into dummy indicators, computed the propensity scores, and added them to the identified keep_fame and lose_fame populations. This led to 163 matched pairs to be used for the ensuing analysis.
 
 ## What did we find?
 
+In order to grasp what are the strategies that allow a channel to maintain the conquered visibility, the data of each channel of the **keep_fame** and **lose_fame** populations were split into two groups, each referring to the timespan previous or following the growth peak. To avoid bias, we only selected the channels that had videos before and after their peak (and within the observed 6 months), ending up with 88 elements for each population.
 
-Text can be **bold**, _italic_, or ~~strikethrough~~.
+We decided to compare the two populations across several selected features:
 
-['Link to another page](./another-page.html).
+* frequency of publications
+* videos length
+* number of tags
 
+Furthermore, we observed the distributions of the categories in the 4 populations. This step was carried out to check if successful creators stay consistent with their content or try to adapt it to the interests of their newly-found large audience. As a matter of fact, when computing the propensity scores, the coefficients found for the categories regressors were not statistically significant. We could hence infer that there are not particular categories more prone to exploiting a viral moment. However, content creators seem to vary their content after the sudden growth, as distribution of videos over categories changes after the peak in many of the channels in both populations (ChiSquared independence test).
 
-```js
-// Javascript code with syntax highlighting.
-var fun = function lang(l) {
-  dateformat.i18n = require('./lang/' + l)
-  return true;
-}
+<figure>
+  <img src="assets\img\channel_cat_dist.png" style="width:100%">
+</figure>
+
+<figure>
+  <img src="assets\img\videos_cat_dist.png" style="width:100%">
+</figure>
+
+From the average distributions of videos over categories an interesting fact stood out. Indeed, while not many music videos were posted by the considered channels before going viral, their presence dramatically increases after the viral outburst in both populations.
+
+To compute the distributions of the frequency of publications we divided the number of videos before and after the sudden growth for both populations by the time of observation (respectively 12 weeks before and 14 weeks after the peak for both groups). The same was done for the length of videos and the number of tags.
+
+Here the boxplots obtained for each feature are shown:
+
+<figure>
+  <img src="assets\img\box_freq.png" style="width:100%">
+</figure>
+
+<figure>
+  <img src="assets\img\box_len.png" style="width:100%">
+</figure>
+
+<figure>
+  <img src="assets\img\box_tags.png" style="width:100%">
+</figure>
+
+These metrics were chosen as they are thought to be indicative descriptors of a channel’s strategy. Their importance is well known by content creators and we were expecting visible differences. Nonetheless, to our surprise, the statistical tests (cfr figure below) performed on the obtained distributions were not found to be significant.
+
+```python
+scs.ttest_rel(freq_publication_keep_after_sudden_growth, freq_publication_keep_before_sudden_growth)
+scs.ttest_ind(freq_publication_keep_after_sudden_growth, freq_publication_lose_after_sudden_growth)
 ```
 
-```ruby
-# Ruby code with syntax highlighting
-GitHubPages::Dependencies.gems.each do |gem, version|
-  s.add_dependency(gem, "= #{version}")
-end
-```
+Only the independent test on the mean in frequency publication of the keep_fame and lose_fame populations gave results close to the level of statistical significance. This is curious, the fact that successful creators post more than forgotten ones could actually be a useful hint. As an ensuing step, we computed the number of likes per channel normalized over the number of views. After performing paired and independent statistical tests, we found that:
 
-#### Header 4
+* Channels that manage to keep the acquired fame increase the number of likes per video in the months following the spike;
+* After their sudden success, winning channels earn a higher number of likes per video compared to channels that lose visibility.
 
-*   This is an unordered list following a header.
-*   This is an unordered list following a header.
-*   This is an unordered list following a header.
+This observation is fairly intriguing given that while watching a video is a passive action, liking the content is an active and explicit form of appreciation. Given that likes are deemed as good indicators of the quality of the content and the creator’s ability to target their audience, an hypothesis could be that these are indeed the factors that played the greatest role in the success of the channels that managed to keep their fame.
 
-##### Header 5
+<figure>
+  <img src="assets\img\box_likes.png" style="width:100%">
+</figure>
 
-1.  This is an ordered list following a header.
-2.  This is an ordered list following a header.
-3.  This is an ordered list following a header.
+On the other hand, dislikes seemed to remain the same for both populations before and after their viral moment. The number of dislikes normalized over the views of both populations after the fame is also quite similar across populations.  
 
-###### Header 6
+<figure>
+  <img src="assets\img\box_dislikes.png" style="width:100%">
+</figure>
 
-| head1        | head two          | three |
-|:-------------|:------------------|:------|
-| ok           | good swedish fish | nice  |
-| out of stock | good and plenty   | nice  |
-| ok           | good `oreos`      | hmm   |
-| ok           | good `zoute` drop | yumm  |
+We proceeded by repeating the same analysis within categories. As the categories most represented in our populations were "Entertainment", "Gaming",
+"Music", and "Howto & Style", we selected these for this next part of the analysis. We considered the same features as before.
 
-### There's a horizontal rule below this.
+Again, we did not find anything to be statistically significant, with a notable exception: gaming channels that manage to keep their fame posted less videos than what they did before the sudden growth.
 
-* * *
+## What can we conclude?
 
-### Here is an unordered list:
-
-*   Item foo
-*   Item bar
-*   Item baz
-*   Item zip
-
-### And an ordered list:
-
-1.  Item one
-1.  Item two
-1.  Item three
-1.  Item four
-
-### And a nested list:
-
-- level 1 item
-  - level 2 item
-  - level 2 item
-    - level 3 item
-    - level 3 item
-- level 1 item
-  - level 2 item
-  - level 2 item
-  - level 2 item
-- level 1 item
-  - level 2 item
-  - level 2 item
-- level 1 item
-
-### Small image
-
-![Octocat](https://github.githubassets.com/images/icons/emoji/octocat.png)
-
-### Large image
-
-![Branching](https://guides.github.com/activities/hello-world/branching.png)
-
-
-### Definition lists can be used with HTML syntax.
-
-<dl>
-<dt>Name</dt>
-<dd>Godzilla</dd>
-<dt>Born</dt>
-<dd>1952</dd>
-<dt>Birthplace</dt>
-<dd>Japan</dd>
-<dt>Color</dt>
-<dd>Green</dd>
-</dl>
-
-```
-Long, single-line code blocks should not wrap. They should horizontally scroll if they are too long. This line should be long enough to demonstrate this.
-```
-
-```
-The final element.
-```
+I imagine that these results may seem delusional to the reader to whom we 
+promised the secret recipe to YouTube fame. On the contrary, we ar
