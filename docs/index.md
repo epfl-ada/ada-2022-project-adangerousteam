@@ -137,5 +137,8 @@ Again, we did not find anything to be statistically significant, with a notable 
 
 ## What can we conclude?
 
-I imagine that these results may seem delusional to the reader to whom we 
-promised the secret recipe to YouTube fame. On the contrary, we ar
+We imagine that these results may seem disappointing to the reader, to whom we promised the secret recipe to YouTube fame. On the contrary, to us they are rather satisfactory. It seems that intrinsic data features, such as the number of tags or the length of videos are not sufficient to explain the phenomenon of YouTube long term fame after a viral success. On the other hand, the amount of likes, which is the main indicator of the viewers level of appreciation of the posted content, appears to be linked to the chances a creator has to establish durable fame. This suggests that overall it’s the creator ability to be liked by its viewers that makes the bigger difference. Seeing that in these last years YouTube, as most social media, has been accused of being completely ruled by its algorithm, our conclusion sounds to us even more refreshing. It appears that YouTube visibility is not, as some had insinuated, blatantly a game of guessing the right number of tags or videos length. There doesn’t even seem to be a category more prone to keep the sudden visibility: it’s the unobserved covariates that matter the most.
+
+To conclude our analysis, ADAngerous team suggests to all the fellow Youtube creators that were able to gain sudden visibility to prioritize the quality of their videos, to pay attention to the audience’s preferences, and, most importantly, to work with passion and creativity.
+
+Finally, we whish to our readers, who have reached the end of this datastory, ADAngerously happy new year!
