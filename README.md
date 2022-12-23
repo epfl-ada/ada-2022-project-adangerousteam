@@ -32,3 +32,9 @@ In milestone 3, the notebooks are organized as follows:
 ## Data story
 
 The data story is available [here](https://adangerousteam.github.io/ada-2022-project-adangerousteam/) and it is also contained in the `docs` folder.
+
+## Organization within the team
+
+* Teammate 1 and 2: preprocessing and visualization
+* Teammate 3 and 4: analysis and datastory
+  
